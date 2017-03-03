@@ -49,8 +49,8 @@ public class HistoryServlet extends HttpServlet {
                     "<td>" + p.mPunchOut + "</td>\n" +
                     "<td>" + p.mLatitude + "</td>\n" +
                     "<td>" + p.mLongitude + "</td>\n" +
-//                    "<td><input type=\"button\" onclick=\"location.href='/delete.do?id="+p.mUserId+
-//                    "'\" value=\"Delete\"></td>\n" +
+                    "<td><input type=\"button\" onclick=\"location.href='/delete.do?id="+p.mUserId+
+                   "'\" value=\"Delete\"></td>\n" +
                     "</tr>\n");
         }
         out.write("</table>\n");
