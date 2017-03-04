@@ -162,7 +162,7 @@ public class EntryFragment extends Fragment {
             SharedPreferences settings = PreferenceManager
                     .getDefaultSharedPreferences(getContext());
 
-            String sWage = settings.getString(getContext().getString(R.string.ui_settings_wage_key), "10.00");
+            String sWage = settings.getString(getContext().getString(R.string.ui_settings_wage_key), "100.00");
             double wage = Double.parseDouble(sWage);
             punchEntry.setEarnings(wage * duration/3600);
             Log.d("earnings", "earnings : " + punchEntry.getEarnings() + " wage " + wage);

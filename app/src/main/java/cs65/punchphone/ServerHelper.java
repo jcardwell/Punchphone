@@ -10,9 +10,6 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
 /**
  * Created by Jack on 3/2/17.
@@ -24,7 +21,6 @@ public class ServerHelper {
 
 
     //handles POSTing to the server
-    //that is takes an exercise entry and sends it to the database
     public static String getAllEmployers() throws IOException {
 
         //setup the url by parsing the first input

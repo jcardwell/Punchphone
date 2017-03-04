@@ -25,33 +25,5 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="1">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/result_summary"
-            android:text="Earnings"
-            android:gravity="center"
-            android:textSize="20sp"/>
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:stretchColumns="1"
-                android:id="@+id/table_layout">
-
-            </TableLayout>
-        </ScrollView>
-
-
-    </LinearLayout>
 
 </LinearLayout>
