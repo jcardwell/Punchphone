@@ -21,11 +21,13 @@ public class PunchDataStore {
 
     //add punch to datastore
     public static boolean add(Punch p) {
-        if (getPunchById(p.mUserId, null) != null) {
+        if (getPunchById(p.mPunchId, null) != null) {
             return false;
         } else {
-            Entity entity = new Entity(Punch.PUNCH_ENTITY_NAME, p.mUserId, getKey());
+            Entity entity = new Entity(Punch.PUNCH_ENTITY_NAME, p.mPunchId, getKey());
+            entity.setProperty(Punch.FIELD_PUNCHID, p.mPunchId);
             entity.setProperty(Punch.FIELD_USERID, p.mUserId);
+            entity.setProperty(Punch.FIELD_COMPANY, p.mCompany);
             entity.setProperty(Punch.FIELD_PUNCH_IN, p.mPunchIn);
             entity.setProperty(Punch.FIELD_PUNCH_OUT, p.mPunchOut);
             entity.setProperty(Punch.FIELD_LOC_LAT, p.mLatitude);
@@ -38,7 +40,7 @@ public class PunchDataStore {
     //delete Exercise from datastore
     public static boolean delete(String id) {
         Query.Filter f =
-                new Query.FilterPredicate(Punch.FIELD_USERID, Query.FilterOperator.EQUAL, id);
+                new Query.FilterPredicate(Punch.FIELD_PUNCHID, Query.FilterOperator.EQUAL, id);
         Query q = new Query(Punch.PUNCH_ENTITY_NAME);
         q.setFilter(f);
         PreparedQuery pq = datastoreService.prepare(q);
@@ -53,6 +55,7 @@ public class PunchDataStore {
         return b;
     }
 
+    //get all punches in datastore
     public static ArrayList<Punch> query(String id) {
         ArrayList<Punch> pList = new ArrayList<>();
         Query q = new Query(Punch.PUNCH_ENTITY_NAME);
@@ -67,6 +70,10 @@ public class PunchDataStore {
             }
         }
         return pList;
+    }
+
+    public static ArrayList<Punch> queryByCompany(String company) {
+        return null;
     }
 
     private static Key getKey() {
@@ -88,7 +95,9 @@ public class PunchDataStore {
             return null;
         } else {
             return new Punch(
+                    (String) e.getProperty(Punch.FIELD_PUNCHID),
                     (String) e.getProperty(Punch.FIELD_USERID),
+                    (String) e.getProperty(Punch.FIELD_COMPANY),
                     (String) e.getProperty(Punch.FIELD_PUNCH_IN),
                     (String) e.getProperty(Punch.FIELD_PUNCH_OUT),
                     (String) e.getProperty(Punch.FIELD_LOC_LAT),
