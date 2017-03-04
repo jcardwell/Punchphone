@@ -35,7 +35,7 @@ public class HistoryServlet extends HttpServlet {
                 "</style>\n" +
                 "</head>\n" +
                 "<body>\n");
-        out.write("<form name=\"userid\" action=\"history.do\" method=\"get\">\n" +
+        out.write("<form name=\"userid\" action=\"history.do?username="+username+"&\" method=\"get\">\n" +
                 "User ID: <input type=\"text\" name=\"userid\">\n" +
                 "<input type=\"submit\" value=\"Search By User ID\">\n" +
                 "</form>\n");
